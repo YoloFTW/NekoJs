@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <link rel="stylesheet" href="/css/index.css" type="text/css">
+
+
+    </head>
+
+    <body>
+
+        <header>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/github">Github</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="options">
+            <form action="/" method="post">
+                <label for="options">Currently viewing <%= Current %>.<br/>Looking for something else?</label>
+                <select id="options" name="options" onchange="this.form.submit()">
+                    <% for( let index = 0; index < Object.keys(Endpoints).length; index++ ) { %>
+
+                        <% let element = Object.keys(Endpoints)[index] %>
+
+                        <option value="<%= element %>"><%= element %></option>
+                    
+                    <% } %>
+
+                </select>
+            </form>
+        </div>
+
+
+        <img class="centered-image" src="<%= Neko.url %>" alt="Neko">
+        
+        <div class="attributes">
+
+            <p>Created by: <a href="<%= Neko.source_url %>" target="_blank"> <%= Neko.artist_name %></a></p>
+
+        </div>
+            
+    </body>
+
+</html>
